@@ -1,10 +1,15 @@
-function formatMessage(message, maxLength) {
-  if (message.length <= maxLength) {
-    return message;
+function makeArray(firstArray, secondArray, maxLength) {
+  const combined = firstArray.concat(secondArray);
+  if (combined.length > maxLength) {
+    return combined.slice(0, maxLength);
   }
-  return message.slice(0, maxLength) + "...";
+  return combined;
 }
 
-console.log(formatMessage("Hello", 20));
-console.log(formatMessage("Hello", 4));
-console.log(formatMessage("Hi", 2));
+console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3)); 
+console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4)); 
+console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3));
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2)); 
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4)); 
+console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0));
+
